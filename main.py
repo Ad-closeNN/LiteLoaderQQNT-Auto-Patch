@@ -144,5 +144,8 @@ if not os.path.exists(f'{localappdata}/LiteLoaderQQNT Auto Patch/QQ.exe.lnk'): #
     shortcut.WorkingDirectory = os.path.dirname(target)
     shortcut.IconLocation = target  # 使用脚本图标
     shortcut.save()
-import subprocess
-subprocess.Popen([f"{localappdata}/LiteLoaderQQNT Auto Patch/QQ.lnk"],shell=True)
+#import subprocess 给那个不知道能不能自动退出的玩意用的
+dir = f"{localappdata}/LiteLoaderQQNT Auto Patch/QQ.lnk"
+#subprocess.Popen([f"cmd /c start",dir], shell=True) 我敲这玩意不能用 不会自动退出，除非你自己关掉终端或者cmd
+os.startfile(dir) #os库yyds 不过这玩意是在qq的登陆界面才自动关闭的
+sys.exit() #退出终端，保留QQ
